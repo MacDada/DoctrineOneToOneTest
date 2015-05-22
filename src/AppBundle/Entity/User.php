@@ -37,12 +37,7 @@ class User
     {
         $this->username = $username;
 
-        // $this->profile = new UserProfile($this);
-    }
-
-    public function createProfile()
-    {
-        $this->profile = new UserProfile($this);
+         $this->profile = new UserProfile($this);
     }
 
     /**

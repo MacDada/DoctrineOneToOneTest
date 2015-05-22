@@ -18,9 +18,6 @@ class UserAndProfilePersistanceTest extends KernelTestCase
         $objectManager->persist($user);
         $objectManager->flush();
 
-        $user->createProfile();
-        $objectManager->flush();
-
         $this->assertUserHasProfile($user, $username);
 
         $foundUser = $this->findUser($username);
