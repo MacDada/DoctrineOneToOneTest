@@ -13,7 +13,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\Column(name="uid", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -29,7 +29,7 @@ class User
     /**
      * @var UserProfile|null
      *
-     * @ORM\OneToOne(targetEntity="UserProfile", mappedBy="user", cascade="persist")
+     * @ORM\OneToOne(targetEntity="UserProfile", inversedBy="user", cascade="persist")
      */
     private $profile = null;
 

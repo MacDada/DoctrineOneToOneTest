@@ -11,11 +11,16 @@ use Doctrine\ORM\Mapping as ORM;
 class UserProfile
 {
     /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     */
+    protected $id;
+
+    /**
      * @var User
      *
-     * @ORM\Id
-     * @ORM\OneToOne(targetEntity="User", inversedBy="profile")
-     * @ORM\JoinColumn(name="uid", referencedColumnName="uid", nullable=false)
+     * @ORM\OneToOne(targetEntity="User", mappedBy="id", cascade={"persist", "remove"})
      */
     private $user;
 
