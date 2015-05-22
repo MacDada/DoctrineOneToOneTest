@@ -16,21 +16,21 @@ class UserAndProfilePersistanceTest extends KernelTestCase
 
 		$user = new User($username);
 
+        // let's persist user before setting up the profile
+        $objectManager->persist($user);
+
 		$user->createProfile();
         $profile = $user->getProfile();
         $this->assertInstanceOf('AppBundle\Entity\UserProfile', $profile);
 
         /**
-         * Here happens the exception:
+         * Now the exception is here :/
          *
          * Doctrine\ORM\ORMInvalidArgumentException:
          * The given entity of type 'AppBundle\Entity\UserProfile'
-         * (AppBundle\Entity\UserProfile@0000000004f21b78000000015b828b83)
+         * (AppBundle\Entity\UserProfile@000000005e9e1a8000000001408388d1)
          * has no identity/no id values set. It cannot be added to the identity map.
          */
-        $objectManager->persist($user);
-
-        // this isn't even executed:
         $objectManager->persist($profile);
 
 		$objectManager->flush();
