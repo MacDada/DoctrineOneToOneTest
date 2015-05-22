@@ -17,3 +17,15 @@ A Symfony project created on May 22, 2015, 10:10 pm.
 # Run tests
 
 `bin/phpunit -c app`
+
+# See files
+
+* `src/AppBundle/Entity/User.php`
+* `src/AppBundle/Entity/UserProfile.php`
+* `src/AppBundle/Tests/UserAndProfilePersistanceTest.php`
+
+# See branches
+
+* `master`
+* `manual_persist1`
+* `manual_persist2`
